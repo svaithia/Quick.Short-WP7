@@ -1,0 +1,70 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    x:Class="urlShortner.Settings"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="False">
+            <shell:ApplicationBarIconButton x:Name="menubar_save" IconUri="/Images/save.png" Text="Save Settings" Click="menubar_save_Click_1"/>
+            <shell:ApplicationBarIconButton x:Name="menubar_clear" IconUri="/Images/clear.png" Text="Cancel" Click="menubar_clear_Click_1"/>
+            <shell:ApplicationBarIconButton x:Name="menubar_history" IconUri="/Images/folder.png" Text="History" Click="menubar_history_Click_1"/>
+            <shell:ApplicationBarIconButton x:Name="menubar_help" IconUri="/Images/questionmark.png" Text="help" Click='menubar_help_Click_1'/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="Quick.Short - A powerful URL Shortener" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="settings" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <CheckBox x:Name="cbSave"  IsChecked="True" Content="Save Short URL History"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+            <CheckBox x:Name="cbLight" IsEnabled="False" IsChecked="False" Content="Lightning Mode" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.515,0.417"/>
+            <Button x:Name="bISGD" Content="IS.GD" HorizontalAlignment="Left" Margin="10,199,0,0" VerticalAlignment="Top" Click="bISGD_Click"/>
+            <TextBlock x:Name="tbCurrentService" HorizontalAlignment="Left" Margin="10,154,0,0" TextWrapping="Wrap" Text="Current Service: " VerticalAlignment="Top" Height="64" Width="220" FontSize="30"/>
+            <TextBlock x:Name="tbServiceStatus" HorizontalAlignment="Left" Margin="238,154,0,0" TextWrapping="Wrap" Text="~" VerticalAlignment="Top" Height="59" Width="85" FontSize="30"/>
+            <Button x:Name="bVGD" Content="V.GD" HorizontalAlignment="Left" Margin="124,199,0,0" VerticalAlignment="Top" Click="bVGD_Click"/>
+
+            <Button x:Name="deleteHistory" Content="Clear History" HorizontalAlignment="Left" Margin="2,270,0,0" Grid.Row="1" VerticalAlignment="Top" Width="450" Height="82" Click="deleteHistory_Click_1"/>
+            <Canvas Name="deleteDialog" Background="#6B0024" 
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Margin="50, 175, 0, 0"
+                    Width="330"
+                    Height="150" Visibility="Collapsed">
+                <TextBlock Text="Are you sure you want to delete these links?"
+                       Width="330" Height="75"
+                           Canvas.Left="20" Canvas.Top="5" FontSize="25"
+                      TextWrapping="Wrap"/>
+                <Button Name="bCancel" Canvas.Left="170"
+                        Canvas.Top="70" Width="150"
+                        Content="Cancel" Click="bCancel_Click_1" />
+                <Button Name="bDelete" Canvas.Left="20"
+                        Canvas.Top="70" Width="150"
+                        Content="Delete" Click="bDelete_Click_1" />
+            </Canvas>
+
+        </Grid>
+    </Grid>
+</phone:PhoneApplicationPage>

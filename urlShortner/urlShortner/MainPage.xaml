@@ -1,0 +1,64 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="urlShortner.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True" Loaded="PhoneApplicationPage_Loaded_1">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="Quick.Short - A powerful URL Shortener" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="shorten" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--LIGHTNING MODE-->
+        <Canvas Name="canvasLightningMode" Background="#526F35"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Margin="50, 175, 0, 0"
+                    Width="330"
+                    Height="150" Visibility="Collapsed">
+            <TextBlock Text="Ligtning Mode is enabled."
+                       Width="330" Height="75"
+                           Canvas.Left="20" Canvas.Top="5" FontSize="25"
+                      TextWrapping="Wrap"/>
+            <Button Name="lmContinue" Canvas.Left="170"
+                        Canvas.Top="70" Width="150"
+                        Content="Continue" Click="lmContinue_Click_1" />
+            <Button Name="lmAbort" Canvas.Left="20"
+                        Canvas.Top="70" Width="150"
+                        Content="Abort" Click="lmAbort_Click_1" />
+        </Canvas>       <!--LIGHTNING MODE-->
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <TextBox x:Name="tbIn" HorizontalAlignment="Left" Height="72" TextWrapping="Wrap" VerticalAlignment="Top" Width="456" InputScope="Url"/>
+            <Button x:Name="bGenerate" Content="Generate" HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top" Height="103" Width="160" ScrollViewer.HorizontalScrollBarVisibility="Auto" Click="bGenerate_Click"/>
+            <Button x:Name="bGCopy" Content="Generate and Copy" HorizontalAlignment="Left" Margin="170,77,0,0" VerticalAlignment="Top" Height="103" Width="276" Click="bGCopy_Click"/>
+            <TextBox x:Name="tbOut" HorizontalAlignment="Left" Height="100" Margin="10,185,0,0" TextWrapping="Wrap" Text="Your URL" VerticalAlignment="Top" Width="436" FontSize="41" IsReadOnly="True"/>
+        </Grid>
+    </Grid>
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="False">
+            <shell:ApplicationBarIconButton x:Name="appbar_clear" IconUri="/Images/clear.png" Text="clear" Click="appbar_clear_Click_1" IsEnabled="True"/>
+            <shell:ApplicationBarIconButton x:Name="appbar_history" IconUri="/Images/folder.png" Text="history" Click="appbar_history_Click_1"/>
+            <shell:ApplicationBarIconButton x:Name="appbar_settings" IconUri="/Images/feature.settings.png" Text="Settings" Click="appbar_settings_Click_1"/>
+            <shell:ApplicationBarIconButton x:Name="appbar_help" IconUri="/Images/questionmark.png" Text="help" Click="appbar_help_Click_1"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+</phone:PhoneApplicationPage>

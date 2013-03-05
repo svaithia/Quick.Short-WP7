@@ -1,0 +1,88 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="urlShortner.Help"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="Quick.Short - A powerful URL Shortener" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="help" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0" ScrollViewer.VerticalScrollBarVisibility="Auto">
+
+                 
+            <ScrollViewer HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="440">
+                <StackPanel VerticalAlignment="Stretch">
+
+                    <TextBlock Text="What is Quick.Short?" FontSize="25" FontWeight="Bold"/>
+                    <TextBlock Margin="0,0,0,20"  Text="Quick.Short is a free url shortner." Width="400" TextWrapping="Wrap"  FontSize="20"/>
+                    
+
+                    <TextBlock Text="How does it work?" FontSize="25" FontWeight="Bold"/>
+                    <TextBlock Margin="0,0,0,20" Text="You basically enter your long URL, in return we return a 6 alphanumeric character extension. (Powered by http://is.gd/ and http://v.gd/)" FontSize="20" Width="400" TextWrapping="Wrap" />
+                    
+
+                    <TextBlock Text="Why shorten URLs?" FontSize="25" FontWeight="Bold"/>
+                    <TextBlock Margin="0,0,0,20" Text="With the advent of SMS and Twitter, we are limited to the number of characters we can send/post. Every bit of character counts!" FontSize="20" Width="400" TextWrapping="Wrap" />
+                    
+
+                    <TextBlock Text="Which URL shortening service do I use?" FontSize="25" FontWeight="Bold"/>
+                    <TextBlock Margin="0,0,0,20" Text="Currentl   y, we have two shortening services (http://is.gd/ and http://v.gd). You can choose either one for your needs. Obviously, the latter service uses one less character." FontSize="20" Width="400" TextWrapping="Wrap" />
+                    
+
+                    <TextBlock Text="How many URLs will show up on my History?" FontSize="25" FontWeight="Bold"/>
+                    <TextBlock Margin="0,0,0,20" Text="Currently, there is not limit on the number recently shortened URLs to be displayed. You would manually have to CLEAR the history either by going to the Settings page OR tapping the DELETE button on the appbar (in the History page)." FontSize="20" Width="400" TextWrapping="Wrap" />
+                    
+                    <TextBlock Text="What is Lightning Mode?" FontSize="25" FontWeight="Bold"/>
+                    <TextBlock Margin="0,0,0,20" Text="Lightning Mode is a amazing new feature that will allow you to efficiently shorten your urls for quick needs. It is currently not available on this version of the application. Stay tuned!" FontSize="20" Width="400" TextWrapping="Wrap" />
+
+
+
+                    <TextBlock TextWrapping="Wrap" Margin="0,30,0,30" Text="If you have any other questions, comments or suggestions. Please send an e-mail to: planauts@gmail.com" FontSize="25" FontWeight="Bold"/>
+
+                    <TextBlock Text="Created by:" FontSize="20"/>
+                    <TextBlock Text="© Saravanan Vaithianathan" FontSize="30" FontWeight="Bold"/>
+                    <TextBlock Text="Powered by:" FontSize="20"/>
+                    <TextBlock Text="http://is.gd/ AND http://v.gd/" FontSize="30" FontWeight="Bold"/>
+                    <TextBlock Text="Contact:" FontSize="20"/>
+                    <TextBlock Text="planauts@gmail.com" FontSize="30" FontWeight="Bold"/>
+
+
+                </StackPanel>
+            </ScrollViewer>
+
+
+
+
+        </Grid>
+    </Grid>
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="False">
+            <shell:ApplicationBarIconButton x:Name="appbar_add" IconUri="/Images/add.png" Text="add" Click="appbar_add_Click_1"/>
+            <shell:ApplicationBarIconButton x:Name="appbar_history" IconUri="/Images/folder.png" Text="history" Click="appbar_history_Click_1"/>
+            <shell:ApplicationBarIconButton x:Name="appbar_settings" IconUri="/Images/feature.settings.png" Text="Settings" Click="appbar_settings_Click_1"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+
+</phone:PhoneApplicationPage>
